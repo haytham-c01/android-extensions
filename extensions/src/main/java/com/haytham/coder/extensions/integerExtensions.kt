@@ -37,28 +37,3 @@ fun Int.dpToPx(): Int {
  */
 fun Int?.isValidIndex (size:Int= Integer.MAX_VALUE)= this!=null && this > -1 && this < size
 
-/**
- * it gets a valid phone number as entered by the user, and convert it to the complete form
- * COMPLETE PHONE FORM: +964##########, 10 hashes
- * @receiver a valid phone number must be passed!!, This function doesn't validate the phone
- *
- * below all possible cases of conversion:
- * - (10 chars)1234567899 -> +9641234567899 (append +964)
- * - (11 chars)01234567899 -> +9641234567899 (append +964 && remove first 0)
- * - (13 chars)9641234567899 -> +9641234567899 (append +)
- * - (14 chars)+9641234567899 -> +9641234567899 (do nothing)
- * - (15 chars)009641234567899 -> +9641234567899 (append + && remove 00)
- * - phone with other length -> same as input(do nothing)
- * @return if input phone length is not invalid -> same as input, else -> complete phone number
- */
-
-fun String.toCompleteIQPhone(): String {
-    return when (length) {
-        10 -> "+964$this"
-        11 -> "+964" + substring(1)
-        13 -> "+$this"
-        14 -> this
-        15 -> "+" + substring(2)
-        else -> this
-    }
-}
