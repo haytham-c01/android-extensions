@@ -50,10 +50,3 @@ fun View.setOnVisibilityChangedListener(onVisibilityChanged: (View) -> Unit){
         }
     }
 }
-
-fun View.showSnackBar(msg: String) {
-    val snackBar = Snackbar.make(this, msg, Snackbar.LENGTH_LONG).apply {
-        setTextColor(Color.RED)
-        show()
-    }
-}
