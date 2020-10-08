@@ -12,7 +12,7 @@ fun Duration.startCountDown(
     intervalInMilli:Long?=null
 ): CountDownTimer = object : CountDownTimer(toMillis(), intervalInMilli?:toMillis()) {
     override fun onTick(millisUntilFinished: Long) {
-        onTicked?.invoke(Duration.ofMinutes(millisUntilFinished))
+        onTicked?.invoke(Duration.ofMillis(millisUntilFinished))
     }
 
     override fun onFinish() {
